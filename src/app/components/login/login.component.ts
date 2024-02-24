@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgIf } from "@angular/common";
 
@@ -16,6 +16,7 @@ export type LoginType = {
     ReactiveFormsModule,
     NgIf
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
       ]),
     })
 
-    if (this.authService.isLogIn()) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigate(['admin'])
     }
   }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
     RouterLinkActive,
     RouterLink
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {AuthService} from "../../../../services/auth.service";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AuthService } from "../../../../services/auth.service";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,6 +9,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
     RouterLinkActive,
     RouterLink
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
