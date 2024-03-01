@@ -1,8 +1,8 @@
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { AuthService } from "../../services/auth.service";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { NgIf } from "@angular/common";
+import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 export type LoginType = {
   login: string;
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.value)
       .subscribe({
         next: () => this.router.navigate(['admin']),
-        error: () => alert("Error login")
+        error: () => alert('Error login')
       })
   }
 

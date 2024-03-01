@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AuthService } from "../../../../services/auth.service";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '@services/auth';
+
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent {
 
   constructor(
     private authServices: AuthService
-  ) {}
+  ) { }
 
   logout() {
     this.authServices.logout();

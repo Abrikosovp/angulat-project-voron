@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { AdminDashboardComponent } from "./components/admin-dashboard/admin-dashboard.component";
-import { AboutComponent } from "./components/about/about.component";
-import { HomeComponent } from "./components/home/home.component";
+import { AdminDashboardComponent } from '@admin/components/admin-dashboard';
+
 
 export const routes: Routes = [
-  { path: "", component: AdminDashboardComponent, children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
+  {
+    path: '', component: AdminDashboardComponent, children: [
+      { path: 'home', loadComponent: () => import('./components/home/home.component').then(page => page.HomeComponent) },
+      { path: 'about', loadComponent: () => import('./components/about/about.component').then(page => page.AboutComponent) },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]
   }
