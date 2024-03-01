@@ -1,6 +1,6 @@
 import { CanActivateFn, CanDeactivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthService } from '../../app/services/auth/auth.service';
+import { AuthService } from '@services/auth';
 
 export const authActivateGuard: CanActivateFn = () => {
 
@@ -17,8 +17,10 @@ export const authActivateGuard: CanActivateFn = () => {
 
 export const authDeactivateGuard: CanDeactivateFn<unknown> = () => {
 
-  if (confirm('Вы уверены ?')) {
-    localStorage.removeItem('')
+  const authService = inject(AuthService);
+
+  if (authService.isLoggedIn() && confirm('Вы уверены ?')) {
+    localStorage.removeItem('token')
     return true;
   }
 
